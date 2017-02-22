@@ -22,15 +22,19 @@ This document will cover migration scenarios for .NET Core projects. It will cov
 3. Migration from RC3 and previous .NET Core csproj projects to the final format 
 
 ## Migration from project.json to csproj
-Migration from project.json to csproj can be done via the [`dotnet migrate`](dotnet-migrate.md) command-line tool or through Visual Studio 2017. Both of these migrations use the same underlying engine to migrate projects, which means that the results will be the same regardless of the method you choose. 
+Migration from project.json to csproj can be done via the [`dotnet migrate`](dotnet-migrate.md) command-line tool or through Visual Studio 2017. Both of these migrations use the same underlying engine to migrate projects, which means that the results will be the same regardless of the method you choose. The process of migration runs 
 
-Visual Studio 2017 will migrate the project automatically on opening either the `xproj` file or the solution file which references `xproj` files. 
+Visual Studio 2017 will migrate the project automatically on opening either the `xproj` file or the solution file which references `xproj` files. If a solution is opened, Visual Studio 2017 will automatically migrate 
 
-Automatic migration translates concepts from project.json to semantically equivalvent concepts in csproj.  
+Tool-based migration translates concepts from project.json to semantically equivalvent concepts in csproj. However, that still does
 
 The easiest option is to open up the solution in the 
 
 ## Migration from DNX to Preview 2 project.json
+If you are still using DNX for .NET Core development the best way forward would be to use the [existing DNX migration guidance]() to migrate from DNX to project-json enabled CLI and then use this document to migrate finally to csproj. 
+
+> [!NOTE]
+> DNX has become officially deprecated during the Preview 1 release of the .NET Core CLI. The project.json format 
 
 ## Migration from earlier .NET Core csproj formats to RTM csproj
 Prior to the final shape of .NET Core csproj format, there were variations that you could've started using. There is no tool that will migrate your project between these states, so the migration has to be done manually by editing the project file. The actual steps depend on the state of the project you are migrating. 
